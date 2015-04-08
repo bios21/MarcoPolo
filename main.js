@@ -1,15 +1,22 @@
 (function(root) {
     'use strict';
 
-    var AREA_SIZE = 10;
-    var RATE = 3;
+    var AREA_SIZE = Math.abs(parseInt(document.querySelector('#areaSize').value || '10'));
+    var RATE = Math.abs(parseInt(document.querySelector('#rate').value || '3'));
     var SCENE = document.querySelector('#scene');
 
     var World = function() {
         this.scene = SCENE.getContext('2d');
+        this.scene.clearRect(0, 0, SCENE.width, SCENE.height);
         this.width = SCENE.width / AREA_SIZE;
         this.height = SCENE.height / AREA_SIZE;
         this.matrix = new Array(this.width);
+
+        AREA_SIZE = Math.abs(parseInt(document.querySelector('#areaSize').value || '10'));
+        AREA_SIZE = (SCENE.width % AREA_SIZE === 0 && SCENE.height % AREA_SIZE === 0 ? AREA_SIZE : 10);
+        RATE = Math.abs(parseInt(document.querySelector('#rate').value || '3'));
+
+        console.info('AreaSize='+AREA_SIZE + ' && GenRate='+RATE)
 
         this.render('rgba(139,131,120,0.8)');
     };

@@ -1,9 +1,11 @@
 (function(root) {
     'use strict';
 
-    var LOOP_FUNCTION = false;
+    var LOOP_FUNCTION = document.querySelector('#loop').checked;
     var MarcoPolo = function(world) {
         this.world = world;
+        LOOP_FUNCTION = document.querySelector('#loop').checked;
+        iteration = 0;
     };
 
     MarcoPolo.prototype.generateColor = function() {
@@ -15,7 +17,6 @@
 
     var iteration = 0;
     MarcoPolo.prototype.run = function () {
-
         var x, y, fnUsed = LOOP_FUNCTION?'fillIslandsLoop':'fillIslandsRecur';
         for (x = 0; x < this.world.width; x++) {
             for (y = 0; y < this.world.height; y++) {
@@ -24,6 +25,7 @@
         }
 
         console.info(iteration + ' itérations with ' + fnUsed);
+        document.querySelector('#iteration').textContent = iteration + ' itérations with ' + fnUsed;
     };
 
     MarcoPolo.prototype.fillIslandsLoop = function(x, y, color) {
