@@ -1,2 +1,2 @@
 # MarcoPolo
-DFS algorithm implementation
+Fill the "islands".

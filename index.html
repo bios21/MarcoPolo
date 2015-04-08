@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="fr">
+    <meta charset="UTF-8">
+    <title>MarcoPolo</title>
+</head>
+<body style="background-color: whitesmoke; text-align: center; font-family: 'Trebuchet MS'">
+    <h1>Marco Polo</h1>
+    <canvas id="scene" width="800" height="600" style="border: 1px solid black; background-color: white"></canvas>
+
+    <script src="main.js"></script>
+    <script src="MarcoPolo.js"></script>
+    <script>
+        (function(root) {
+            var mc = new root.MarcoPolo(new root.World());
+
+            console.info(mc.world.matrix);
+
+            mc.run();
+        })(window);
+    </script>
+</body>
+</html>
